@@ -1,0 +1,136 @@
+.text-float__container {
+  position: relative;
+}
+.float-image-wrapper {
+  position: absolute;
+  width: clamp(20px, calc(5vw + (var(--width) / 2)), var(--width));
+  top: var(--pos-y);
+  right: var(--pos-x);
+  z-index: var(--pos-z);
+}
+@media (max-width: 767.98px) {
+  .float-image-wrapper.mobile {
+    width: clamp(20px, calc(5vw + (var(--width-mb) / 2)), var(--width-mb));
+    top: var(--pos-y-mb);
+    right: var(--pos-x-mb);
+    z-index: var(--pos-z);
+  }
+}
+img.float-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 200;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-extralight.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 200;
+  font-style: italic;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-extralightitalic.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 300;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-light.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 300;
+  font-style: italic;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-lightitalic.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 400;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 400;
+  font-style: italic;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-italic.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-medium.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  font-style: italic;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-mediumitalic.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 600;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-semibold.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 600;
+  font-style: italic;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-semibolditalic.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 700;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-bold.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 700;
+  font-style: italic;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-bolditalic.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 800;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-extrabold.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 800;
+  font-style: italic;
+  src: url("https://file.hstatic.net/1000075078/file/plusjakartasans-extrabolditalic.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Beau Sweet Sans";
+  font-weight: 300;
+  src: url("https://file.hstatic.net/1000075078/file/beausweetsans-light.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Beau Sweet Sans";
+  font-weight: 700;
+  src: url("https://file.hstatic.net/1000075078/file/beausweetsans-bold.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Beau Sweet Sans";
+  font-weight: 500;
+  src: url("https://file.hstatic.net/1000075078/file/beausweetsans-medium.ttf")
+    format("truetype");
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}

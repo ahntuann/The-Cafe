@@ -1,0 +1,280 @@
+/* ======================= CÀI ĐẶT CHUNG ======================= */
+:root {
+  --primary-color: #d9a674; /* Màu cam/nâu nhạt (giống nút App Download) */
+  --text-color: #333;
+  --white-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ======================= HEADER ======================= */
+#main-header {
+  position: fixed; /* Giữ header luôn ở trên cùng */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 50px;
+  background-color: transparent; /* Nền trong suốt khi ở trên cùng */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển động mượt */
+}
+
+/* Lớp CSS được thêm bằng JavaScript khi cuộn */
+#main-header.scrolled {
+  background-color: var(--white-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng "đổ nền" (shadow) */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+#main-header.scrolled .logo,
+#main-header.scrolled nav ul li a {
+  color: var(--text-color); /* Màu chữ khi header có nền trắng */
+}
+
+/* Khi header trong suốt, chữ màu trắng (để nổi bật trên slider) */
+/* Bạn có thể đổi thành màu đen nếu ảnh slider của bạn sáng */
+#main-header:not(.scrolled) .logo,
+#main-header:not(.scrolled) nav ul li a {
+  color: var(--white-color);
+  /* Nếu ảnh slider sáng, dùng: color: var(--text-color); */
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
+}
+
+.app-download-btn {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+/* ======================= SLIDER ======================= */
+.slider-container {
+  position: relative; /* Để chứa các nút bấm */
+  width: 100%;
+  height: 100vh; /* Cao bằng 100% chiều cao màn hình */
+  overflow: hidden; /* Ẩn các slide thừa */
+}
+
+.slider-wrapper {
+  display: flex;
+  width: 200%; /* 100% cho mỗi slide (tổng 2 slide = 200%) */
+  height: 100%;
+  transition: transform 0.5s ease-in-out; /* Hiệu ứng trượt */
+}
+
+.slide {
+  width: 50%; /* Mỗi slide chiếm 50% của wrapper (tức 100% màn hình) */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-color);
+  text-align: center;
+}
+
+/* TÙY CHỈNH ẢNH CỦA BẠN TẠI ĐÂY */
+#slide-1 {
+  /* Thay 'url_den_anh_1.jpg' bằng đường dẫn ảnh của bạn */
+  background-image: url("./public/slider/slide_2_img.jpg");
+}
+
+#slide-2 {
+  /* Thay 'url_den_anh_2.jpg' bằng đường dẫn ảnh của bạn */
+  background-image: url("./public/slider/slide_3_img.jpg");
+}
+
+.slide-content h1 {
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.slide-content p {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+/* Nút bấm */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 0.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
+}
+
+/* ======================= THANH TRƯỢT NGANG (TICKER) ======================= */
+.ticker-section {
+  background-color: #fcf8f0; /* Màu nền be nhạt */
+  padding: 45px 0;
+  overflow: hidden; /* Quan trọng: Ẩn phần trượt ra ngoài */
+  width: 100%;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.ticker-wrapper {
+  display: flex;
+  width: max-content; /* Làm cho wrapper đủ rộng để chứa cả 2 bản sao */
+  /* Gọi animation */
+  animation: scroll-left 40s linear infinite;
+}
+
+.ticker-content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Ngăn text xuống dòng */
+}
+
+.ticker-content span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #030303;
+  text-transform: uppercase;
+}
+
+.ticker-content .dot {
+  margin: 0 50px;
+  font-size: 2rem;
+  color: #030303;
+}
+
+/* Định nghĩa animation trượt */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0); /* Bắt đầu ở vị trí 0 */
+  }
+  100% {
+    transform: translateX(
+      -50%
+    ); /* Di chuyển sang trái đúng bằng 1/2 chiều rộng (chiều rộng của 1 ticker-content) */
+  }
+}
+
+/* ======================= PHẦN CHUYỆN NHÀ ======================= */
+.story-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--white-color);
+}
+
+.story-content {
+  max-width: 800px; /* Giới hạn chiều rộng của text */
+  margin: 0 auto; /* Căn giữa */
+}
+
+/* --- Phần CSS cho Tiêu Đề Cong --- */
+.curved-title svg {
+  width: 100%;
+  max-width: 350px; /* Điều chỉnh độ lớn của chữ */
+  height: auto;
+  /* Không cần set chiều cao cố định, để viewBox tự xử lý */
+}
+
+.curved-title text {
+  /* Sử dụng font-family từ body, hoặc một font đặc biệt nếu bạn có
+      Bạn có thể cần import một font chữ đậm (Heavy, Black) để giống mẫu 
+    */
+  /* font-family: "Roboto", sans-serif; */
+  font-size: 2.2rem; /* Cỡ chữ */
+  font-weight: 900; /* Rất đậm */
+  fill: #333; /* Màu chữ (trong SVG dùng 'fill' thay vì 'color') */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+/* --- Hết phần CSS cho Tiêu Đề Cong --- */
+
+.story-content p {
+  font-size: 1.8rem; /* Kích thước trong ảnh là 16px */
+  font-weight: 500;
+  line-height: 1.5;
+  color: #333;
+  margin: 10px 0 30px 0; /* Khoảng cách trên/dưới */
+}
+
+.story-btn {
+  background-color: #222; /* Màu đen */
+  color: var(--white-color);
+  padding: 12px 28px;
+  border-radius: 50px; /* Bo tròn */
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.story-btn:hover {
+  background-color: #555; /* Màu đậm hơn khi hover */
+}
+
+/* Điều chỉnh lại phần nội dung giả lập để nó nằm dưới cùng */
+.content-placeholder {
+  height: 100vh; /* Giảm chiều cao để dễ thấy */
+  padding: 100px;
+  background-color: #f4f4f4;
+}
